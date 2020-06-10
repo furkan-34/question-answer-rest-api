@@ -1,0 +1,38 @@
+const multer = require('multer');
+const path = require('path');
+const CustomError = require('../../helpers/error/CustomError');
+
+
+ 
+
+
+//Storage, FileFilter
+
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        
+        const rootDir = path.dirname(require.main.filename);
+        cb(null, path.join(rootDir,"/public/uploads"));
+    },
+
+    filename: function(req,file,cb) {
+        //File - Mimetype - image/png
+
+        const extension = file.mimetype.split("/")[1];
+        req.savedProductImage = "image." + extension;
+        cb(null,req.savedProductImage);
+    }
+});
+
+const fileFilter = (req,file,cb) => {
+    let allowedMimeTypes =["image/png", "image/jpg", "image/jpeg"];
+    
+    if (!allowedMimeTypes.includes(file.mimetype)) {
+        return cb(new CustomError("Please Provide a Valid Image File",400), false);
+    }
+    return cb(null,true);   
+};
+
+const productImageUpload = multer({storage,fileFilter});
+
+module.exports = productImageUpload;
