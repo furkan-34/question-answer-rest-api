@@ -3,35 +3,7 @@ const asyncErrorWrapper = require("express-async-handler");
 const CustomError = require("../helpers/error/CustomError");
 const {sendJwtToClient} = require("../helpers/authorization/tokenHelpers");
 
-const register = asyncErrorWrapper(async (req, res, next) => {
-  // POST DATA
-  // const name = "Furkan Ciğerlioğlu";
-  // const email = "furkancigerlioglu@gmail.com";
-  // const password = "12345";
 
-  //async await
-
-  const { name, email, password, role } = req.body;
-
-  const user = await User.create({
-    name,
-    email,
-    password,
-    role
-  });
-
-
-  sendJwtToClient(user,res);
-
-
-  return res.status(200).json({
-    succes: true,
-    data: user
-  });
-
-
-  return CustomError(error);
-});
 
 const getAllUsers = asyncErrorWrapper(async (req, res, next) => {
   const users = await User.find();
@@ -41,29 +13,40 @@ const getAllUsers = asyncErrorWrapper(async (req, res, next) => {
     data: users,
   });
 
-  return CustomError(error);
-  console.log(error);
+ 
 });
 
-const imageUpload = asyncErrorWrapper(async (req, res, next) => {
-  
-  const user = await User.findByIdAndUpdate(req.user.id, {
-    "profile_image": req.savedProfileImage
-   },{
-    new: true,
-    runValidators: true
-  });
 
-  return res.status(200)
-  .json({
-    success: true,
-    message: "Image Upload succesfull.",
+const getSingleUser = asyncErrorWrapper( async (req, res, next) => {
+
+  const {id} = req.params;
+
+  const user = await User.findById(id);
+
+  if(!user){
+    return next(new CustomError("There is no such user with that id",400));
+  }
+
+  return res.status(200).json({
+    succes: true,
     data: user
   });
 
-  return CustomError(error);
-  console.log(error);
-});
+  
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,8 +57,8 @@ const errorTest = (req, res, next) => {
 
 module.exports = {
   getAllUsers,
-  register,
-  errorTest,
-  imageUpload
+  getSingleUser,
+  errorTest
+
 
 };

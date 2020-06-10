@@ -20,6 +20,10 @@ customErrorHandler = (err,req,res,next) => {
         )
     }
 
+    if(err.name === "CastError"){
+        customError = new CustomError("Please provide a valid id",400);
+    }
+
     console.log(customError.message,customError.status);
     res
     .status(customError.status || 500)
