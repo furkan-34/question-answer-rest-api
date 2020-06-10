@@ -8,6 +8,13 @@ It's a restful api with async await structure on Node JS.
 | /api/user | `GET` | Empty | List all users. |
 | /api/user/:id | `GET` | Empty | List user's information with its id. |
 
+# Admin
+ 
+| Route | HTTP Verb | POST body | Description |
+| --- | --- | --- | --- |
+| /api/admin/block/:id | `GET` | Empty | Toggle block status of user. |
+| /api/admin/user/:id | `DELETE` | Empty | Delete user with its questions. |
+
 
 
 
@@ -17,7 +24,7 @@ It's a restful api with async await structure on Node JS.
 | --- | --- | --- | --- |
 | /api/auth/profile | `GET` | Empty | Sends User's information on JSON. |
 | /api/auth/register | `POST` | {'name':'Furkan Cigerlioglu', 'email':'foo@gmail.com', 'password':'123456'} | Create a new user. |
-| /api/auth/edit | `POST` | {'name':'Furkan Cigerlioglu', 'email':'foo@gmail.com', 'password':'123456'}  | Edit information of user with its token. |
+| /api/auth/edit | `PUT` | {'name':'Furkan Cigerlioglu', 'email':'foo@gmail.com', 'password':'123456'}  | Edit information of user with its token. |
 | /api/auth/upload | `POST` | Key: 'profile_image' Value: image file | Upload a image for profile. |
 | /api/auth/login | `POST` | {'email':'furkan@gmail.com', 'password':'123456'} | Log in. |
 | /api/auth/logout | `GET` | Empty | Log out. |
@@ -31,3 +38,13 @@ It's a restful api with async await structure on Node JS.
  
 # Questions
  
+
+| Route | HTTP Verb | POST body | Description |
+| --- | --- | --- | --- |
+| /api/questions | `GET` | Empty | Lists all questions on JSON format. |
+| /api/questions/ask | `POST` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Create a new question. |
+| /api/questions/:id | `GET` | Empty | List question with its id. |
+| /api/questions/:id/edit | `PUT` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Update question if user is owner it. |
+| /api/questions/:id/delete | `DELETE` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Delete question if user is owner it. |
+| /api/questions/:id/like | `GET` | Empty | Like a question. |
+| /api/questions/:id/undo_like | `GET` | Empty | Undo your like from question. |
