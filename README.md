@@ -1,5 +1,19 @@
 # question-answer-rest-api
 It's a restful api with async await structure on Node JS.
+Used Express.js and mongoose.
+Includes CRUID Operations with authorization using JWT and admin/user parameters.
+Includes Image Upload proccess also.
+All important config settings can be change at config.env (under config/env folder).
+
+For upload whole answers, questions and users data to mongoDB, please use command below at terminal:
+```
+npm run import
+```
+
+For delete whole answers, questions and users data to mongoDB, please use command below at terminal:
+```
+npm run delete
+```
 
 # User
  
@@ -7,6 +21,9 @@ It's a restful api with async await structure on Node JS.
 | --- | --- | --- | --- |
 | /api/user | `GET` | Empty | List all users. |
 | /api/user/:id | `GET` | Empty | List user's information with its id. |
+| /api/user?limit=10 | `GET` | Empty | Lists all users up to 10 pieces on JSON format. |
+| /api/user?page=2 | `GET` | Empty | Lists all users with page format on JSON data format. |
+| /api/user?search=userName | `GET` | Empty | Search a user with query and response on JSON data format. |
 
 # Admin
  
@@ -33,17 +50,20 @@ It's a restful api with async await structure on Node JS.
 
 
 
-
-
  
 # Questions
  
 
 | Route | HTTP Verb | POST body | Description |
 | --- | --- | --- | --- |
-| /api/questions | `GET` | Empty | Lists all questions on JSON format. |
+| /api/questions | `GET` | Empty | Lists all questions on JSON format |
+| /api/questions?limit=10 | `GET` | Empty | Lists all questions up to 10 pieces on JSON format. |
+| /api/questions?page=2 | `GET` | Empty | Lists all questions with page format on JSON data format. |
+| /api/questions?search=QuestionName | `GET` | Empty | Search a question with query and response on JSON data format. |
+| /api/questions?sortBy=most-answered | `GET` | Empty | Lists most answered questions on JSON format. |
+| /api/questions?sortBy=most-liked | `GET` | Empty | Lists most liked questions on JSON format. |
 | /api/questions/ask | `POST` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Create a new question. |
-| /api/questions/:id | `GET` | Empty | List question with its id. |
+| /api/questions/:id | `GET` | Empty | List question and answers of question with its id. |
 | /api/questions/:id/edit | `PUT` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Update question if user is owner it. |
 | /api/questions/:id/delete | `DELETE` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Delete question if user is owner it. |
 | /api/questions/:id/like | `GET` | Empty | Add user's id at likes of question. |

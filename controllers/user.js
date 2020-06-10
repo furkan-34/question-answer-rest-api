@@ -6,12 +6,9 @@ const {sendJwtToClient} = require("../helpers/authorization/tokenHelpers");
 
 
 const getAllUsers = asyncErrorWrapper(async (req, res, next) => {
-  const users = await User.find();
 
-  return res.status(200).json({
-    succes: true,
-    data: users,
-  });
+
+  return res.status(200).json(res.queryResults);
 
  
 });
