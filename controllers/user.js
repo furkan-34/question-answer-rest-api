@@ -45,7 +45,25 @@ const getAllUsers = asyncErrorWrapper(async (req, res, next) => {
   console.log(error);
 });
 
+const imageUpload = asyncErrorWrapper(async (req, res, next) => {
+  
+  const user = await User.findByIdAndUpdate(req.user.id, {
+    "profile_image": req.savedProfileImage
+   },{
+    new: true,
+    runValidators: true
+  });
 
+  return res.status(200)
+  .json({
+    success: true,
+    message: "Image Upload succesfull.",
+    data: user
+  });
+
+  return CustomError(error);
+  console.log(error);
+});
 
 
 
@@ -58,5 +76,6 @@ module.exports = {
   getAllUsers,
   register,
   errorTest,
+  imageUpload
 
 };

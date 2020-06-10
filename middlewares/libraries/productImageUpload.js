@@ -19,8 +19,8 @@ const storage = multer.diskStorage({
         //File - Mimetype - image/png
 
         const extension = file.mimetype.split("/")[1];
-        req.savedProductImage = "image." + extension;
-        cb(null,req.savedProductImage);
+        req.savedProfileImage = "image" + req.user.id + "." + extension;
+        cb(null,req.savedProfileImage);
     }
 });
 
@@ -33,6 +33,6 @@ const fileFilter = (req,file,cb) => {
     return cb(null,true);   
 };
 
-const productImageUpload = multer({storage,fileFilter});
+const profileImageUpload = multer({storage,fileFilter});
 
-module.exports = productImageUpload;
+module.exports = profileImageUpload;
