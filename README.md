@@ -45,7 +45,7 @@ npm run delete
 | /api/auth/upload | `POST` | Key: 'profile_image' Value: image file | Upload a image for profile. |
 | /api/auth/login | `POST` | {'email':'furkan@gmail.com', 'password':'123456'} | Log in. |
 | /api/auth/logout | `GET` | Empty | Log out. |
-| /api/auth/forgotpassword | `POST` | {'email:'furkan@gmail.com'} | Sends reset link to email. |
+| /api/auth/forgotpassword | `POST` | {'email:'furkancigerlioglu@gmail.com'} | Sends reset link to email. |
 | /api/auth/resetpassword?resetPasswordToken="Reset Password Token" | `POST` | {'password:'12345678'} | Resets password with token. |
 
 
@@ -62,10 +62,10 @@ npm run delete
 | /api/questions?search=QuestionName | `GET` | Empty | Search a question with query and response on JSON data format. |
 | /api/questions?sortBy=most-answered | `GET` | Empty | Lists most answered questions on JSON format. |
 | /api/questions?sortBy=most-liked | `GET` | Empty | Lists most liked questions on JSON format. |
-| /api/questions/ask | `POST` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Create a new question. |
+| /api/questions/ask | `POST` | {'title':'New Question Title', 'content':'Content Text'} | Create a new question. |
 | /api/questions/:id | `GET` | Empty | List question and answers of question with its id. |
-| /api/questions/:id/edit | `PUT` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Update question if user is owner it. |
-| /api/questions/:id/delete | `DELETE` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Delete question if user is owner it. |
+| /api/questions/:id/edit | `PUT` | {'title':'Question Title', 'content':'Content Text'} | Update question if user is owner it. |
+| /api/questions/:id/delete | `DELETE` | EMPTY | Delete question if user is owner it. |
 | /api/questions/:id/like | `GET` | Empty | Add user's id at likes of question. |
 | /api/questions/:id/undo_like | `GET` | Empty | Remove user's id from likes of question. |
 
