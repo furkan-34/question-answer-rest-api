@@ -46,5 +46,24 @@ It's a restful api with async await structure on Node JS.
 | /api/questions/:id | `GET` | Empty | List question with its id. |
 | /api/questions/:id/edit | `PUT` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Update question if user is owner it. |
 | /api/questions/:id/delete | `DELETE` | {'title':'Furkan Cigerlioglu', 'content':'foo@gmail.com'} | Delete question if user is owner it. |
-| /api/questions/:id/like | `GET` | Empty | Like a question. |
-| /api/questions/:id/undo_like | `GET` | Empty | Undo your like from question. |
+| /api/questions/:id/like | `GET` | Empty | Add user's id at likes of question. |
+| /api/questions/:id/undo_like | `GET` | Empty | Remove user's id from likes of question. |
+
+ 
+# Answers
+ 
+
+| Route | HTTP Verb | POST body | Description |
+| --- | --- | --- | --- |
+| /api/questions/:question_id/answers | `POST` | {'content':'This is an answer'} | Create a new answer of a question with its id. |
+| /api/questions/:question_id/answers | `GET` | Empty | Lists all answers of question on JSON format. |
+| /api/questions/:question_id/answers/:answer_id | `GET` | Empty | Get single answer information of question on JSON format. |
+| /api/questions/:question_id/answers/:answer_id/edit | `PUT` | {'content':'This is new content of answer'}  | Update Content of answer. |
+| /api/questions/:question_id/answers/:answer_id/delete | `DELETE` | Empty  | Delete an answer. |
+| /api/questions/:question_id/answers/:answer_id/like | `GET` | Empty  | Add user's id at likes of answer. |
+| /api/questions/:question_id/answers/:answer_id/undo_like | `GET` | Empty  | Remove user's id from likes of answer. |
+
+
+
+
+

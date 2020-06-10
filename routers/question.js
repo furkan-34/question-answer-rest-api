@@ -3,7 +3,7 @@ const { askNewQuestion, getAllQuestions, getSingleQuestion, editQuestion, delete
 
 const {getAccessToRoute, getQuestionOwnerAccess} = require('../middlewares/authorization/auth');
 const {checkQuestionExist} = require("../middlewares/database/databaseErrorHelpers");
-
+const answer = require('./answer');
 
 
 
@@ -18,7 +18,10 @@ router.delete("/:id/delete",[ getAccessToRoute, checkQuestionExist, getQuestionO
 router.get("/:id/like",[ getAccessToRoute, checkQuestionExist], likeQuestion);
 router.get("/:id/undo_like",[ getAccessToRoute, checkQuestionExist], undoLikeQuestion);
 
+// Routing to Answers
+router.use("/:question_id/answers",checkQuestionExist,answer);
 
+module.exports = router;
 
 
 
