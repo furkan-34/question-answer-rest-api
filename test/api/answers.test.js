@@ -2,11 +2,11 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const should = chai.should();
 const server = require('../../server.js');
-const tokenHelpers = require('../../helpers/authorization/tokenHelpers.js');
+
 
 chai.use(chaiHttp);
 
-describe('Admin Test', () => {
+describe('Answer Test', () => {
 
     before((done) => {
         chai.request(server)
@@ -19,10 +19,9 @@ describe('Admin Test', () => {
     })
 
     
-    it('(GET /) Toggle block status of user. ', (done) => {
+    it('(GET /) Lists all answers on JSON format ', (done) => {
         chai.request(server)
-        .get('/api/admin/block/5e302931752a051907096e93')
-        .set('Authorization', 'Bearer: '+token)
+        .get('/api/questions/5e302a8075ac8d9e9bd199b2/answers')
         .end((err,res) => {
             res.should.have.status(200);
             res.should.be.a('object');
@@ -31,11 +30,11 @@ describe('Admin Test', () => {
         })
      })
 
-     /*
-     it('(DELETE /) Delete user with its questions. ', (done) => {
+     it('(POST /) Create a new answer. ', (done) => {
         chai.request(server)
-        .delete('/api/admin/user/5e302931752a051907096e93')
+        .post('/api/questions/5e302a8075ac8d9e9bd199b2/answers')
         .set('Authorization', 'Bearer: '+token)
+        .send({ content: 'NEW ANSWER NEW ANSWER  NEW ANSWER' })
         .end((err,res) => {
             res.should.have.status(200);
             res.should.be.a('object');
@@ -43,8 +42,9 @@ describe('Admin Test', () => {
             
         })
      })
-     */
 
+ 
+    
   
 
 })
