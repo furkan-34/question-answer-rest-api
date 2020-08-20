@@ -4,6 +4,7 @@ node_js:
 before install:
   - npm install
   - npm install mocha --global
+  - export NODE_ENV = production
  
 script:
   - npm run test
