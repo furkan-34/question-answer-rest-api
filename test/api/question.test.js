@@ -152,7 +152,7 @@ describe('Question Test', () => {
         })
      })
 
-
+     /*
      it('(DELETE /) Delete question if user is owner it. ', (done) => {
         chai.request(server)
         .delete('/api/questions/5e302a8075ac8d9e9bd199b2/delete')
@@ -164,6 +164,6 @@ describe('Question Test', () => {
             
         })
      })
-  
+     */
 
 })
