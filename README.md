@@ -1,3 +1,4 @@
+[![Build Status](https://api.travis-ci.org/furkan-34/question-answer-rest-api.svg?branch=master&status=passed)](https://travis-ci.org/github/furkan-34/question-answer-rest-api)
 # question-answer-rest-api
 It's a restful api with async await structure on Node JS.
 Used Express.js and mongoose.
