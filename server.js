@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const routers = require('./routers'); //index.js for routers
-const connecDatabase = require('./helpers/database/connectDatabase');
+const connectDatabase = require('./helpers/database/connectDatabase');
 const customErrorHandler = require('./middlewares/errors/customErrorHandler');
 const cors = require('cors');
 const path = require('path');
@@ -15,7 +15,7 @@ dotenv.config({
 });
 
 // MongoDB Connection
-connecDatabase();
+connectDatabase();
 
 
 const app = express();
@@ -43,3 +43,4 @@ app.listen(PORT, () => {
 app.use(bodyParser.json({limit:'5mb'})); 
 app.use(bodyParser.urlencoded({extended:true, limit:'5mb'}));
 
+module.exports = app;

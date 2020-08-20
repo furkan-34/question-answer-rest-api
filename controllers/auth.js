@@ -128,7 +128,7 @@ const forgotPassword = asyncErrorWrapper(async (req, res, next) => {
   // send email
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS} = process.env;
 
-  const resetPasswordUrl = `http://localhost:5000/api/auth/forgotpassword?resetPasswordToken=${resetPasswordToken}`;
+  const resetPasswordUrl = `http://localhost:5000/api/auth/resetpassword?resetPasswordToken=${resetPasswordToken}`;
 
   const emailTemplate = `
   <h3> Reset Your Password </h3>

@@ -41,5 +41,21 @@
     "name": "Furkan Ciğerlioğlu",
     "email": "furkancigerlioglu@gmail.com",
     "password": "12345678"
+  },
+
+  {
+    "_id": "5e302931752a051907096e93",
+    "role": "user",
+    "name": "user test",
+    "email": "usertest@gmail.com",
+    "password": "test123"
+  },
+
+  {
+    "_id": "5e302931752a051907096e92",
+    "role": "admin",
+    "name": "admin test",
+    "email": "admintest@gmail.com",
+    "password": "test123"
   }
 ]

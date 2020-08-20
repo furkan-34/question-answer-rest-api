@@ -22,8 +22,8 @@ npm run delete
 | /api/user | `GET` | Empty | List all users. |
 | /api/user/:id | `GET` | Empty | List user's information with its id. |
 | /api/user?limit=10 | `GET` | Empty | Lists all users up to 10 pieces on JSON format. |
-| /api/user?page=2 | `GET` | Empty | Lists all users with page format on JSON data format. |
-| /api/user?search=userName | `GET` | Empty | Search a user with query and response on JSON data format. |
+| /api/users?page=2 | `GET` | Empty | Lists all users with page format on JSON data format. |
+| /api/users?search=userName | `GET` | Empty | Search a user with query and response on JSON data format. |
 
 # Admin
  
