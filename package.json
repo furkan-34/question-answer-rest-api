@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --exit --recursive --timeout 15000",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "import": "node dummy-generator --import",
     "delete": "node dummy-generator --delete"
