@@ -19,8 +19,7 @@ connectDatabase();
 
 
 const app = express();
-const PORT = 5000 || process.env.PORT;
-
+const PORT = process.env.NODE_ENV === "development" ? 5000 : process.env.port;
 //Express Body Middleware
 app.use(express.json());
 // cors
